@@ -1,2 +1,12 @@
 ﻿  FutureOct.cpp
+C:\Users\krohr\projects\gitexample\FutureOct\FutureOct\Review.h(48,18): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\krohr\projects\gitexample\FutureOct\FutureOct\Review.h(69,8): warning C4101: 'choice': unreferenced local variable
+C:\Users\krohr\projects\gitexample\FutureOct\FutureOct\Review.h(71,10): warning C4101: 'someTimesCurrency': unreferenced local variable
+C:\Users\krohr\projects\gitexample\FutureOct\FutureOct\Review.h(70,9): warning C4101: 'notWholeNumber': unreferenced local variable
+  Review.cpp
+C:\Users\krohr\projects\gitexample\FutureOct\FutureOct\Review.h(48,18): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\krohr\projects\gitexample\FutureOct\FutureOct\Review.h(69,8): warning C4101: 'choice': unreferenced local variable
+C:\Users\krohr\projects\gitexample\FutureOct\FutureOct\Review.h(71,10): warning C4101: 'someTimesCurrency': unreferenced local variable
+C:\Users\krohr\projects\gitexample\FutureOct\FutureOct\Review.h(70,9): warning C4101: 'notWholeNumber': unreferenced local variable
+  Generating Code...
   FutureOct.vcxproj -> C:\Users\krohr\projects\gitexample\FutureOct\x64\Debug\FutureOct.exe

@@ -2,6 +2,8 @@
 #include <fstream> // allows us to write and read to text files
 #include <string> // allows use of getline
 #include <vector>
+#include "Review.h" // allows us to use the Review class in this file
+
 
 
 void MidtermMenuExample()
@@ -214,6 +216,53 @@ int main()
             git push alias branch
                 git push github master
                 git push origin master
+
+
+
+
+        Git order of operations
+            Once you're in a folder that you want to treat as a project/local repo
+
+            git init
+                this is done once per project
+
+            If you have files already in that folder
+            
+            git add -A
+                will add all files in folder to staging, ready to commit
+
+            git commit -m "Some meaningful message here"
+
+            Once commited they are ready to be pushed/uploaded
+
+            to upload you must have a remote set up
+                You'll first have to go to github, go to your profile, click repositories, click new
+                That will generate a new remote repo and url for you
+                Copy that url it gives you
+                Then back in command line
+
+           git add remote origin urlGoesHere
+                this is done once per remote repo that you want
+                most of the time this is done just once
+
+           You can confirm the remote being added via
+
+           git remote -v
+
+           then finally
+           git push origin master
+                if it's your first pushing and you had the git credential checked during install
+                you'll get a pop to authorize your github account with git and you'll be set after that
+
+            
+            If you're in a project that has already had git init and a git remote added the steps 
+            after you're done editting any files
+            git add -A
+            git commit -m "Any message"
+            git push origin master
+
+
+
     */
 
 
@@ -226,8 +275,8 @@ int main()
 
     */
     
-    WriteFile();
-    ReadFile();
+    //WriteFile();
+    //ReadFile();
 
 
 
@@ -259,7 +308,39 @@ int main()
     // Any review questions before going starting a review from scratch
 
     // MidterMenuExample
-    MidtermMenuExample(); // Calls the MidtermMenuExample method
+    //MidtermMenuExample(); // Calls the MidtermMenuExample method
+
+
+
+
+    // Review Section
+    Review review; // Calls the constructor of the Review class, this is the same as saying int i;
+    // We create a review object that has access to all public members of the Review class, currently
+    // the DayOne method
+
+    // We can comment any of these calls out if we don't want to see the output for that day
+
+    // review.DayOne(); // calls the DayOne method off of the review object
+
+    // Day Two
+     // review.DayTwo();
+    
+    // Day Three
+     review.DayThree();
+    
+    // Day Four
+    // review.DayFour();
+    
+    // Day Five
+    // review.DayFive();
+    
+    // Day Six
+    // review.DaySix();
+    
+    // Day Seven+
+    // review.DaySeven();
+
+
 
 
 
