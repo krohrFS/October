@@ -1,6 +1,97 @@
 #include <iostream>
 #include <fstream> // allows us to write and read to text files
 #include <string> // allows use of getline
+#include <vector>
+
+
+void MidtermMenuExample()
+{
+
+    /*
+    Midterm Menu example
+        Access menu option without it constantly looping through the menu
+
+
+
+*/
+
+// Going to make something similar but not exact
+
+// Create a vector of strings that represent menu Options
+    std::vector<std::string> menuOptions = { "Hello World", "Sum", "Exit" };
+
+    std::string userInput = ""; // We create this string to hold userInput
+
+
+    // Start a loop to display the menu, prompt the user, and run some code accordingly
+    do
+    {
+        // We display the menu here
+
+
+        // We prompt the user here
+        std::cout << "Please select a menu option - 1 for hello world, 2 for sum, 3 to exit" << std::endl;
+        std::cin >> userInput;
+
+        // We have some decision making code here
+        // if or switch for the most part - BUT because we're not working with numbers it has to be an if
+        if (userInput == "1")
+        {
+            // Hello world
+            std::cout << "Hello World" << std::endl;
+        }
+        else if (userInput == "2")
+        {
+            // sum
+            std::cout << "sum" << std::endl;
+        }
+        else if (userInput == "3")
+        {
+            // this is the end
+            // nothing really needed here
+        }
+        else
+        {
+            // user input invalid value
+            std::cout << "Please provide 1,2, or 3" << std::endl;
+        }
+
+
+
+    } while (userInput == "" || userInput != "3"); // Context being the string starts blank so the loop would happen either way
+    // and if the user types something that isn't 3, the loop continues, so the end condition(s) of this loop
+    // is if the userInput has a non blank value OR userInput has the value of "3".
+
+
+}
+
+
+void WriteFile()
+{
+    std::ofstream file("text.txt", std::ios::app); // Forces the creation of this file and will overwrite it entirely
+    file << "My third write" << std::endl;
+
+    // To append we need to provide an additional argument to the ofstream
+    // std::ofstream file("filename.type", std::ios::app) that last bit is what appends and not overwrites
+
+
+    // ofstream is for writing/appending
+}
+
+void ReadFile()
+{
+    // ifstream is for reading
+    std::ifstream readFile("text.txt");
+    std::string line = ""; // initialize a string variable to read the file line by line
+
+    while (std::getline(readFile, line))
+    {
+        std::cout << line << std::endl;
+    }
+}
+
+
+
 
 int main()
 {
@@ -8,7 +99,7 @@ int main()
 
     /*
         Todays lecture is about stuff that you'll see in upcoming classes
-        We're going to look at 
+        We're going to look at
             Git
             GitHub
             FileIO
@@ -25,8 +116,8 @@ int main()
 
         If you're on mac you may already have git installed
         You can confirm this by pressing space and cmd at the same time to bring up spotlight, then type
-        terminal and open it, once terminal is open type 
-        git --version 
+        terminal and open it, once terminal is open type
+        git --version
         if you get a version number returned to you, you have it instaled if you don't
         Visit https://git-scm.com/downloads/mac
 
@@ -44,7 +135,7 @@ int main()
                 Shows all folders and files in the current working directory
 
                 Optional statement for ls
-                    ls -la 
+                    ls -la
 
             cd
                 change directory
@@ -58,14 +149,14 @@ int main()
             mkdir
                 make directory
                 mkdir folderName
-                if wanting spaces you need to wrap the folder name in " " 
+                if wanting spaces you need to wrap the folder name in " "
                 mkdir "multiple words for folder or file"
 
             touch
                 will create a file
                 touch readme.txt
 
-            rm 
+            rm
                 remove
                 rm fileNameOrFolderName
                 Will remove
@@ -115,7 +206,7 @@ int main()
                 the repo we make on github, without this we can't upload
 
                 To confirm the remotes were added...
-                    git remote -v 
+                    git remote -v
                         we should see at least 2 if we've added 1 remote
                         1 fetch and 1 push
 
@@ -128,30 +219,18 @@ int main()
 
 
 
-/*
-    File IO - Write a file
-    ofstream file("name of file here");
-    file << "First file io" << std::endl;
+    /*
+        File IO - Write a file
+        ofstream file("name of file here");
+        file << "First file io" << std::endl;
 
-*/
-
-    std::ofstream file("text.txt", std::ios::app); // Forces the creation of this file and will overwrite it entirely
-    file << "My third write" << std::endl;
-
-    // To append we need to provide an additional argument to the ofstream
-    // std::ofstream file("filename.type", std::ios::app) that last bit is what appends and not overwrites
+    */
+    
+    WriteFile();
+    ReadFile();
 
 
-    // ofstream is for writing/appending
 
-    // ifstream is for reading
-    std::ifstream readFile("text.txt");
-    std::string line = ""; // initialize a string variable to read the file line by line
-
-    while (std::getline(readFile, line))
-    {
-        std::cout << line << std::endl;
-    }
 
     // Things we can use this for
     /*
@@ -162,7 +241,7 @@ int main()
             That file could have a list of all slain monsters, the players fields at the time of save
             And we could as part of this method initialize the player object to that saved state
 
-        Should we have other things that we'd want to change based off a "save state" 
+        Should we have other things that we'd want to change based off a "save state"
             Think of settings - we can change the color of text, size of text, and other things
             about our command prompt programatically
 
@@ -175,8 +254,13 @@ int main()
         So if we use the game example - we'd probably want to make a main menu with new game, load, exit
 
         And any time we're not in combat we could have a save option
-    
     */
+
+    // Any review questions before going starting a review from scratch
+
+    // MidterMenuExample
+    MidtermMenuExample(); // Calls the MidtermMenuExample method
+
 
 
 
