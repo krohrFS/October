@@ -1,8 +1,10 @@
 #include <iostream>
+#include <fstream> // allows us to write and read to text files
+#include <string> // allows use of getline
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    //std::cout << "Hello World!\n";
 
     /*
         Todays lecture is about stuff that you'll see in upcoming classes
@@ -16,6 +18,10 @@ int main()
         Please visit https://www.github.com and create an account with your student email to get started
 
         After creating an account, visit https://git-scm.com/downloads/win if you have windows
+        You can go through the install process and leave everything to default but I'd recommend watching
+        the recording to make sure your install settings are the same as mine, to install git, there's like 20~
+        screens of options, most are super simple 1 - 10 options, generally around 3 per screen
+
 
         If you're on mac you may already have git installed
         You can confirm this by pressing space and cmd at the same time to bring up spotlight, then type
@@ -117,8 +123,63 @@ int main()
             git push alias branch
                 git push github master
                 git push origin master
-
-
     */
+
+
+
+
+/*
+    File IO - Write a file
+    ofstream file("name of file here");
+    file << "First file io" << std::endl;
+
+*/
+
+    std::ofstream file("text.txt", std::ios::app); // Forces the creation of this file and will overwrite it entirely
+    file << "My third write" << std::endl;
+
+    // To append we need to provide an additional argument to the ofstream
+    // std::ofstream file("filename.type", std::ios::app) that last bit is what appends and not overwrites
+
+
+    // ofstream is for writing/appending
+
+    // ifstream is for reading
+    std::ifstream readFile("text.txt");
+    std::string line = ""; // initialize a string variable to read the file line by line
+
+    while (std::getline(readFile, line))
+    {
+        std::cout << line << std::endl;
+    }
+
+    // Things we can use this for
+    /*
+         before getting into databases like mysql, firebase, or mongo (things you'll learn about much later)
+         we can use files to store data
+            So if we think to our game project
+            We could have a method that reads from a text file - think of loading a game
+            That file could have a list of all slain monsters, the players fields at the time of save
+            And we could as part of this method initialize the player object to that saved state
+
+        Should we have other things that we'd want to change based off a "save state" 
+            Think of settings - we can change the color of text, size of text, and other things
+            about our command prompt programatically
+
+
+        We can from file, have some decision making code, and based on the decision either leave the colors
+        alone or change them completely
+
+        We can also write to the file, over write completely every time we save
+
+        So if we use the game example - we'd probably want to make a main menu with new game, load, exit
+
+        And any time we're not in combat we could have a save option
+    
+    */
+
+
+
+
 }
 
