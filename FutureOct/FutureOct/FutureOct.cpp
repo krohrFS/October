@@ -339,10 +339,10 @@ int main()
     // review.DayFour();
     
     // Day Five
-     review.DayFive();
+    // review.DayFive();
     
     // Day Six
-    // review.DaySix();
+     review.DaySix();
     
     // Day Seven+
     // review.DaySeven();

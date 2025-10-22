@@ -606,6 +606,10 @@ public: // anything above is private and anything below is public
 			scopes, are we looking for the error of duplicate entries
 
 			Same name in different scope, gotcha
+
+			Question: I know it's not recommend to use == but it is allowed right?
+			Answer: == Yes this is allowed to be used, but not recommended for a for loop
+			For loops I would recommend anything from, >, >=, <, <=
 		
 		*/
 
@@ -846,6 +850,174 @@ public: // anything above is private and anything below is public
 
 	void DaySix()
 	{
+		Message("Welcome to Day 6 Review");
+
+		/*
+			Collections
+			for each loop
+
+			Collections can be thought of as a singular identifier that can contain multiple values of the same type
+			There are collections later on that can do values of different types but the two types of collections
+			covered in pg1 are arrays and vectors
+
+			Arrays in c++ are non mutable (can't change, for the most part) once they are created
+			What I mean by that is their size. When an array is created by us we need to provide a size to it
+			And that size can not change
+			Also arrays do not have any publically accessible fields or methods like a vector does
+			They are a little cumbersome to work with but they have their place
+
+			Vectors in c++ are mutable (they can change on the fly very easily) when we create a vector we do not need
+			to provide a size but we can, and we even go past that size with speficic methods like push_back or providing a new size
+			to the vector. Unlike arrays vectors have a ton of publically accesssible fields and methods. The two that we the most
+			are going to be .size() and push_back()
+
+			the size method will return the total number of items (elements) inside of the vector
+			and push_back will append a new item (element) as the new last item (element) in the vector
+		
+		*/
+
+		// Declaring Arrays
+		int myIntArr[3]; 
+		std::string myStrArr[3];
+		bool myBoolArr[3];
+
+		// We can have an array of any type
+
+		// If we wanted to see example of declaring an array with values
+		short myShortArr[3] = { 1,2,3 }; 
+		long myLongArr[3] = { 123 }; // we provide size and a single value here, even though the array has a size of 3
+		// We can provide any number of values as long as it does not exceed the size provided
+
+		int size = 5;
+
+		// double myDoubleArr[size];
+		// Can not declare an array with the size from a variable
+
+		// Now to access those variables either for assignment or output
+
+		myIntArr[0] = 123;
+		myIntArr[1] = 234;
+		myIntArr[2] = 345;
+
+		// Note that all collections the first item/element is at position 0
+		// So the myIntArr has a size of 3, index 0 is the first element, index 1 is the second element, and index 2 is the third element
+
+		Message("myIntArr[0]: " + std::to_string(myIntArr[0]));
+		Message("myIntArr[1]: " + std::to_string(myIntArr[1]));
+		Message("myIntArr[2]: " + std::to_string(myIntArr[2]));
+
+		// However say we have a collection that is absurdly large say 1000 elements - and we want to output them all
+		// there's no reason to have 1000 extra lines to output everything in the collection
+
+		// Unfortunately for arrays we don't have any publically accessible method like a vector does with .size()
+		// We just have to know the size of the array - for context in this class every array given will also show
+		// example data, just count the values
+		// There is an equation that you can look later to get the size of the array it self - however it is not needed
+		// For the array we're working with it has a size of 3
+
+		// To loop through the array the long way
+		for (int i = 0; i < 3; i++)
+		{
+			std::cout << "myIntArr[" << i << "]: " << myIntArr[i] << std::endl;
+		}
+
+		// Now for a for each loop
+		// The difference between the use of either a regular for loop or a for each loop is if the position matters to you
+		// In the above example i is the variable that we use as the position or index
+
+		// in a for each loop we don't utilize the normal structure of a for loop with the three statements
+		/*
+			for (type name : theCollection)
+			{
+
+			}
+
+			we want the type of the variable to match the type of the collection
+
+			for (int number : myIntArr)
+			{
+
+			}
+
+			this will loop from start to end and have a number of iterations equal to the size collection
+			even though we don't have a publically accessible way to get the size, the for each will know on execution
+
+
+		
+		*/
+
+		for (int number : myIntArr)
+		{
+			std::cout << "number: " << number << std::endl;
+		}
+		
+
+		// We don't always need to output the values stored in a collection we can alter them with the loop as well
+
+		for (int i = 0; i < 3; i++)
+		{
+			// Prompt the user for a value
+			std::cout << "Please input a whole number" << std::endl;
+			std::string userInput = "";
+			std::cin >> userInput;
+			int number = stoi(userInput);
+			myIntArr[i] = number;
+
+		}
+
+		for (int number : myIntArr)
+		{
+			std::cout << "number: " << number << std::endl;
+		}
+
+		// Now for vectors
+		// We can do everything that we've done for arrays for vectors, they share all of that
+
+		// The only difference in those shared things is the declaration of the vector and the way we loop through a vector
+		// For creating the vector we do not need to provide size like we do with an array
+		std::vector<int> myIntVector;
+
+		// Like the array we can a vector of any type we want
+		std::vector<std::string> myStrVector(3); // we provide size here if we want note the () instead of []
+		std::vector<short> myShortVector = { 1,2,34 }; // has a size of 3 by default even though we aren't providing
+		// a size with (). We provided three values, so far size is 3
+
+		// Looks like we can't provide values on the same line we provide size on for a vector
+
+		// Now to assign or access values
+		// Because myIntVector does not have a size provided we have no elements or index's to output or assign so we'll get that
+		// later on with push_back
+
+		// myStrVector has a size of 3 so just like the arrays
+		myStrVector[0] = "Hello";
+		myStrVector[1] = " ";
+		myStrVector[2] = "world!";
+
+		std::cout << "myStrVector[0]: " << myStrVector[0] << std::endl;
+		std::cout << "myStrVector[1]: " << myStrVector[1] << std::endl;
+		std::cout << "myStrVector[2]: " << myStrVector[2] << std::endl;
+
+		// Now unlike arrays, as stated above vectors have a .size() method, this will always return the number
+		// of elements or items in the vector itself so myStrVector will return 3 when we call the size() method from it
+		std::cout << "size of myStrVector: " << myStrVector.size() << std::endl;
+
+		// loop a vector pretty easily
+		for (int i = 0; i < myStrVector.size(); i++)
+		{
+			std::cout << "myStrVector[" << i << "]: " << myStrVector[i] << std::endl;
+		}
+
+		// And also like a array we can utilize the for each loop
+
+		for (std::string word : myStrVector)
+		{
+			std::cout << "word: " << word << std::endl;
+		}
+
+
+		
+
+
 
 	}
 
