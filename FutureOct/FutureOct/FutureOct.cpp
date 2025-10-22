@@ -13,13 +13,13 @@ void MidtermMenuExample()
     Midterm Menu example
         Access menu option without it constantly looping through the menu
 
+        // Going to make something similar but not exact
+
+    // Create a vector of strings that represent menu Options
+
+    */
 
 
-*/
-
-// Going to make something similar but not exact
-
-// Create a vector of strings that represent menu Options
     std::vector<std::string> menuOptions = { "Hello World", "Sum", "Exit" };
 
     std::string userInput = ""; // We create this string to hold userInput
@@ -310,6 +310,13 @@ int main()
     // MidterMenuExample
     //MidtermMenuExample(); // Calls the MidtermMenuExample method
 
+/*
+    Question: Are we allowed to use .size() for the lab8
+    Answer: .size() is something we cover so it is available for use
+
+    
+*/
+
 
 
 
@@ -326,13 +333,13 @@ int main()
      // review.DayTwo();
     
     // Day Three
-     review.DayThree();
+     //review.DayThree();
     
     // Day Four
     // review.DayFour();
     
     // Day Five
-    // review.DayFive();
+     review.DayFive();
     
     // Day Six
     // review.DaySix();
