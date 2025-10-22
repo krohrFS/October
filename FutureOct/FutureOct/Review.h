@@ -5,7 +5,30 @@
 
 class Review
 {
+
+
 	// Fields - variables for the class (and each object made from the class)
+	std::string name;
+	int number;
+
+	// When we creates fields we can provide values here, but we generally don't. We would provide values
+	// to the fields via the constructors or getter/setters methods that would be under the public keyword
+	// To see that these are actually private we can go over to FutureOct.cpp and try to use the . operator to see
+	// them like we do the day methods
+
+
+	/*
+		Question: Can you do something like, 
+		private::code 
+		Answer: We would not be able to access private data in another file that way
+		However we could if wanted to provide the private keyword
+		Should you choose to set the access modifier of each member - field or method you could if you wanted to
+		You don't need to do this for c++ anything above public is private and anything below public is public
+		In other languages however you may need to do this like in c#
+
+	
+		
+	*/
 
 
 
@@ -13,7 +36,49 @@ public: // anything above is private and anything below is public
 	// Default constructor - special method that lets us create objects from the class
 	Review()
 	{
+		// provide some "default" values to our two fields, name and number
+		// these values can be wahtever you want
+		name = "karl";
+		number = 3;
+		// Instructions that are given to you will probably have the values the defaults should be
+		// but if not present you can make up whatever value you want
 
+	}
+
+	// Overloaded Constructor - this will have parameters - usually a number equal to the fields but it does need to be
+	Review(std::string _name, int _number)
+	{
+		// fields = parameters
+		name = _name;
+		number = _number;
+	}
+
+
+	// Getters/setters
+	// These are methods that wil llet us retrieve the private data or alter the private data
+
+	// Getters will retieve/return data - they'll have a return type that matches the field you're returning
+	std::string GetName()
+	{
+		return name;
+	}
+
+	int GetNumber()
+	{
+		return number;
+	}
+
+	// Setters allow us to alter the value - no returns typically - should have a parameter that matches the type of the field
+	void SetName(std::string _name)
+	{
+		// field = parameter
+		name = _name;
+	}
+
+	void SetNumber(int _number)
+	{
+		// field = parameter
+		number = _number;
 	}
 
 
@@ -1023,7 +1088,21 @@ public: // anything above is private and anything below is public
 
 	void DaySeven()
 	{
+		Message("Welcome to Day 7 Review");
+		Message("We've actually been doing day 7 review to a point this entire time");
+		/*
+			We actually started with a bit of day 7 review
+			We created this file to house the different Day methods for our review
+			And in the main we included this file at the top with #include "Review.h" which you'll see in the
+			FutureOct.cpp file or whatever file your main is in
 
+			Things we haven't covered with this class is going to be members, fields like that
+			For the extensive version of that look for the game demo examples in discord
+
+			// What we'er going to start with is going to the very top above the public keyword and creating
+			any number of fields we want
+		
+		*/
 	}
 
 

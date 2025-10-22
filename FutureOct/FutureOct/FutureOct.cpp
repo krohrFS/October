@@ -342,10 +342,52 @@ int main()
     // review.DayFive();
     
     // Day Six
-     review.DaySix();
+    // review.DaySix();
     
     // Day Seven+
-    // review.DaySeven();
+     review.DaySeven();
+
+    // . operator examples to see publically accessible things, like we do the day methods above
+    // review.
+    // We don't see name or number because they are private - private things are only available (natively) in the file
+    // they are made in or the class they are made in
+    
+     // Create a Review object using the overloaded constructor
+     Review newReview("bob", 2);
+
+     std::cout << "newReview.name: " << newReview.GetName() << std::endl;
+     std::cout << "review.name: " << review.GetName() << std::endl;
+
+     newReview.SetName("Steve");
+     review.SetName("Doug");
+
+
+     std::cout << "newReview.name: " << newReview.GetName() << std::endl;
+     std::cout << "review.name: " << review.GetName() << std::endl;
+
+     /*
+        Question: we can use this-> right
+        Answer: No this-> is not available for use
+
+        Question: Are we making our own includes on the final
+        Answer: No, none of the instructions ask you to do that
+
+        Question: Not only are we getting it to run, but we need it to make sense
+        Answer: You're going to have to follow all of the ToDos listed in all three files of the final
+        Item.h, Inventory.h, and PracticalShop.h, I recommend reading all instructions in those three files
+        and FSO before writing any code. I also recommend in order of easy and understanding tackle those files in that order
+        as well. Item is the simplest, followed by PracticalShop, with Inventory being the bulk of the work
+        however for everything in PracticalShop to work and run, Item and Inventory need to be finished
+        You don't need to follow that order, but that is my recommendation
+
+        Question: Can we use const
+        Answer: This is explicitly stated in the external material use policy as no you can not
+        That policy is found in 0.02 Course Overview in pg3 of the study guide, a version of the policy exists at the 
+        beginning and end of each file in the final itself.
+
+     
+     
+     */
 
 
 
